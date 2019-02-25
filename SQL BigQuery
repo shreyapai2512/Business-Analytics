@@ -1,0 +1,27 @@
+1) Retrieving all data regarding Basketball teams
+SELECT * FROM `bigquery-public-data.ncaa_basketball.mbb_teams_games_sr`
+
+2) Arranging data of games based on attendance in games in ascending order
+SELECT * FROM `bigquery-public-data.ncaa_basketball.mbb_teams_games_sr`
+ORDER by attendance ASC 
+
+3) Obtaining data regarding games with specifically 2 periods
+SELECT * FROM `bigquery-public-data.ncaa_basketball.mbb_teams_games_sr` WHERE periods=2
+
+4) Obtaining data regarding the game(s) with lowest attendance
+SELECT MIN(attendance) FROM `bigquery-public-data.ncaa_basketball.mbb_teams_games_sr`
+
+5) Isolating and obtaining data of particularly attendance in basketball games 
+SELECT attendance FROM `bigquery-public-data.ncaa_basketball.mbb_teams_games_sr` 
+
+6) Obtaining data when games were played at a neutral venue
+SELECT home_team=false FROM `bigquery-public-data.ncaa_basketball.mbb_teams_games_sr`
+
+7) Obtaining the unique number of cities in which games were played
+SELECT Count(distinct(venue_city)) FROM `bigquery-public-data.ncaa_basketball.mbb_teams_games_sr`
+
+8) Obtaining the average attendance in games played
+SELECT AVG(attendance) FROM `bigquery-public-data.ncaa_basketball.mbb_teams_games_sr`
+
+9) Obtaining the data for games in which attendance was greater than 2000
+SELECT attendance, COUNT (*) FROM `bigquery-public-data.ncaa_basketball.mbb_teams_games_sr` GROUP BY attendance HAVING COUNT (*) > 2000  
